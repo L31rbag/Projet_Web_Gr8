@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style_reservation.css">
+    <link rel="stylesheet" href="style_reservation.css">
     <title>Le Ziravène</title>
 </head>
 <body>
@@ -38,5 +38,21 @@
 
       <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
       <script src="main.js" defer></script>
+      <script>
+        export default {
+          data() {
+            return {
+              name: 'bob',
+              status:  true,
+            };
+          },
+        };
+      </script>
+
+      <template>
+        <h1>{{ name }}</h1>
+        <p v-if="status"> Bob est là</p>
+        <p v-else> Bob est pas là</p>
+      </template>
 </body>
 </html>

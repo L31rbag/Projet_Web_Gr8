@@ -1,0 +1,73 @@
+header {
+    background-color: blue;
+    top: 5px;
+    position: fixed;
+    padding: 10px;
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 10px 5px 5px black;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4rem;
+    text-shadow: 1px 1px 2px black ;
+}
+
+body {
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+#restaurant {
+    background-color: red;
+    padding: 20px;
+    margin: 20px;
+}
+
+.img_restau {
+
+}
+
+#barre {
+    background-color: green;
+    padding: 4px;
+    border-radius: 30px;
+    text-shadow: 1px 1px 2px black ;
+}
+
+#rdv {
+    background-color: yellow;
+    margin: 20px;
+    border-radius: 30px;
+    justify-content: center;
+}
+
+.liste_rdv {
+    background-color: purple;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 30px;
+
+}
+
+.Ajout {
+    background-color: purple;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 30px;
+    display: flex;
+}
+
+footer {
+    background-color: blue;
+    bottom: 5px;
+    position: fixed;
+    padding: 10px;
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 10px 5px 5px black;
+}

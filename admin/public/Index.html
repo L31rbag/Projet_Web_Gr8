@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Admin</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<header>
+    <h1>Admin</h1>
+</header>
+
+<body>
+<div id="restaurant">
+
+    <img class="img_restau" src="/image/restau.png"/>
+
+</div>
+
+
+<div id="barre">
+
+</div>
+
+<div id="rdv">
+    <table class="liste_rdv">
+        <thead>
+            <tr class="head">
+                <th>Nom</th>
+                <th>Téléphone</th>
+                <th>Mail</th>
+                <th>Nombre de personnes</th>
+                <th>Date/Heure</th>
+                <th>Nombre d'enfants</th>
+                <th>Numéro de table</th>
+                <th>Modifier</th>
+                <th>Suprimer</th>
+            </tr>
+        </thead>
+        <tbody class="body">
+            <tr>
+                <td>Jean Dupont</td>
+                <td>06 12 34 56 78</td>
+                <td>jean.dupont@email.com</td>
+                <td>4</td>
+                <td>2024-02-20 19:30</td>
+                <td>2</td>
+                <td>12</td>
+                <td><button class="Modifier" type="button">Modifier</button></td>
+                <td><button class="Supprimer" type="button">Supprimer</button></td>
+            </tr>
+            <tr>
+                <td>Marie Curie</td>
+                <td>06 87 65 43 21</td>
+                <td>marie.curie@email.com</td>
+                <td>2</td>
+                <td>2024-02-21 20:00</td>
+                <td>0</td>
+                <td>5</td>
+                <td><button class="Modifier" type="button">Modifier</button></td>
+                <td><button class="Supprimer" type="button">Supprimer</button></td>
+            </tr>
+            <tr>
+                <td>Paul Martin</td>
+                <td>07 98 76 54 32</td>
+                <td>paul.martin@email.com</td>
+                <td>3</td>
+                <td>2024-02-22 18:45</td>
+                <td>1</td>
+                <td>8</td>
+                <td><button class="Modifier" type="button">Modifier</button></td>
+                <td><button class="Supprimer" type="button">Supprimer</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form class="Ajout" action="/ma-page-de-traitement" method="post">
+        <ul>
+          <li>
+            <label for="name">Nom&nbsp;:</label>
+            <input type="text" id="name" name="user_name" />
+          </li>
+          <li>
+            <label for="mail">E-mail&nbsp;:</label>
+            <input type="email" id="mail" name="user_mail" />
+          </li>
+          <li>
+            <label for="msg">Message&nbsp;:</label>
+            <textarea id="msg" name="user_message"></textarea>
+          </li>
+        </ul>
+      </form>
+</div>
+</body>
+
+<footer>
+    <h1>Admin</h1>
+</footer>
+
+</html>

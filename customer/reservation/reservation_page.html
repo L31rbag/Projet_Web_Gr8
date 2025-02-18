@@ -7,6 +7,8 @@
     <title>Le Ziravène</title>
 </head>
 <body>
+
+  <div id="app">
     <h1> Réservation </h1>
 
     <form action="reservation_page.php">
@@ -21,38 +23,20 @@
         <input type="text" id="mail" name="mail"><br><br>
 
         <label for="nb_pers">Nombre personnes:</label>
-        <select id="nombre" name="cars">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-        </select><br><br>
+        <select v-model="nombre" id="nombre">
+          <option value="" selected disabled hidden>Choisissez</option>
+          <option v-for="n in 8" value = n> {{ n }}</option>
+        </select>
+
+        <br><br>
 
         <input type="submit" value="Confirmer">
 
       </form>
 
+    </div>
+
       <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
       <script src="main.js" defer></script>
-      <script>
-        export default {
-          data() {
-            return {
-              name: 'bob',
-              status:  true,
-            };
-          },
-        };
-      </script>
-
-      <template>
-        <h1>{{ name }}</h1>
-        <p v-if="status"> Bob est là</p>
-        <p v-else> Bob est pas trop là</p>
-      </template>
 </body>
 </html>

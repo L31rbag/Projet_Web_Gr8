@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Connexion</title>
+	<link rel="stylesheet" type="text/css" href="../style/style.css">
+</head>
+
+<body>
+    <header>
+        <a id="title" href="../../customer/index.html"><h1>Le Ziravène</h1></a>
+    </header>
+
+    <div id="app">
+
+    <form>
+        <div id="log_input">
+            <p>Identifiant:</p>
+            <input v-model="User.name" required /><br> <!-- newReservation -->
+            <p>Mot de passe:</p>
+            <input v-model="User.mdp" required/><br>
+        </div>
+
+        <div id="log_button">
+            <button @click="add">Connexion</button>
+        </div>
+    </form>
+    <p>{{User.name}}</p>
+    </div>
+        
+
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script src="../src/js/log.js" defer></script>
+</body>
+
+<footer>
+</footer>
+
+</html>

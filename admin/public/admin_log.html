@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Connexion</title>
-	<link rel="stylesheet" type="text/css" href="../style/style.css">
+	<link rel="stylesheet" type="text/css" href="../style/log.css">
 </head>
 
 <body>
@@ -15,9 +15,12 @@
     <div id="app">
 
     <form>
-        <div id="log_input">
+        <h1> Admin </h1>
+        <div class="log_input">
             <p>Identifiant:</p>
             <input v-model="User.name" required /><br> <!-- newReservation -->
+        </div>
+        <div class="log_input">
             <p>Mot de passe:</p>
             <input v-model="User.mdp" required/><br>
         </div>
@@ -26,7 +29,6 @@
             <button @click="add">Connexion</button>
         </div>
     </form>
-    <p>{{User.name}}</p>
     </div>
         
 
@@ -34,8 +36,5 @@
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 	<script src="../src/js/log.js" defer></script>
 </body>
-
-<footer>
-</footer>
 
 </html>

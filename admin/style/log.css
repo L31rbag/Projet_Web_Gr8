@@ -1,0 +1,57 @@
+header {
+    background-color: #864401;
+    top:0px;
+    position:absolute;
+    width: 100%;
+}
+
+body {
+    background-color: #ffc183;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+#title {
+    text-decoration:none;
+    color: azure;
+    text-align: center;
+}
+
+form {
+  width:420px;
+  background: #864401;
+  color:#ffffff;
+  border-radius: 20%;
+}
+
+form h1 {
+    font-size:36px;
+    text-align:center;
+}
+form p {
+    text-decoration: underline;
+    margin-left: 25%;
+}
+form .log_input {
+    width:100%;
+    height:50px;
+    margin:30px 0;
+}
+
+.log_input input{
+    width:50%;
+    margin-left: 25%;
+}
+
+form #log_button button {
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 5%;
+    background:#ffc183;
+    border:none;
+    border-radius: 40px;
+    color:#864401
+}
+

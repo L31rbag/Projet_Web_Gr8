@@ -9,30 +9,39 @@
 <body>
 
   <div id="app">
-    <h1> Réservation </h1>
 
-    <form action="reservation_page.php">
+    <div id="tete">
+      <h1> Réservation </h1>
+      <img src="./../../images/Ziravene_logo.jpg" alt="Logo">
+    </div>
+
+    <div id="corps">
+    <form action="reservation_page.php" method="POST">
         <label for="fname">Nom </label>
-        <input type="text" id="nom" name="nom"><br><br>
+        <input type="text" id="nom" name="nom" required><br><br>
         <label for="lname">Prenom </label>
         <input type="text" id="prenom" name="prenom"><br><br>
         <label for="lname">Telephone </label>
-        <input type="text" id="num_tel" name="num_tel"><br><br>
+        <input type="text" id="num_tel" name="num_tel" required><br><br>
 
         <label for="lname">Mail </label>
-        <input type="text" id="mail" name="mail"><br><br>
+        <input type="text" id="mail" name="mail" required><br><br>
+
+        <label for="lname">Date </label>
+        <input type="date" id="date" required  /><br><br>
 
         <label for="nb_pers">Nombre personnes:</label>
         <select v-model="nombre" id="nombre">
           <option value="" selected disabled hidden>Choisissez</option>
-          <option v-for="n in 8" value = n> {{ n }}</option>
+          <option v-for="n in 8" value = n required> {{ n }}</option>
         </select>
 
         <br><br>
 
-        <input type="submit" value="Confirmer">
+        <input type="submit" value="Réserver" id="boutonEnvoi">
 
       </form>
+    </div>
 
     </div>
 

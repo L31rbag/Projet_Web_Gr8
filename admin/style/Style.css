@@ -1,11 +1,8 @@
 header {
-    background-color: #864401;
-    top: 5px;
-    position: fixed;
-    padding: 10px;
+    background-color: #C18845;
+    top:0px;
+    position:absolute;
     width: 100%;
-    border-radius: 30px;
-    box-shadow: 10px 5px 5px black;
 }
 
 h1 {
@@ -15,7 +12,7 @@ h1 {
 }
 
 body {
-    background-color: #ffc183;
+    background-color: #E3CD8B;
     display: flex;
     flex-direction: column;
     margin-top: 200px;
@@ -23,7 +20,8 @@ body {
 }
 
 #restaurant {
-    background-color: red;
+    background-color: #C18845;
+    border-radius: 30px;
     padding: 20px;
     margin: 20px;
     display: flex;
@@ -31,61 +29,36 @@ body {
 }
 
 #barre {
-    background-color: green;
+    background-color: #C18845;
     padding: 4px;
     border-radius: 30px;
     text-shadow: 1px 1px 2px black ;
 }
 
-#rdv {
-    background-color: yellow;
+/*#rdv {
     margin: 20px;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
+}*/
 
-.liste_rdv {
-    background-color: purple;
+#tab {
+    background-color: #C18845 ;
+    border-radius: 30px;
     padding: 20px;
     margin: 20px;
-    border-radius: 30px;
-
-}
-
-.Ajout {
-    background-color: purple;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 30px;
     display: flex;
-}
-
-footer {
-    background-color: #864401;
-    bottom: 5px;
-    position: fixed;
-    padding: 10px;
-    width: 100%;
-    border-radius: 30px;
-    box-shadow: 10px 5px 5px black;
-}
-
-#title {
-    text-decoration:none;
-    color: azure;
-}
-
-form {
-    display:flex;
     flex-direction: column;
-    margin-left : 40%;
-    margin-right : 30%
+    align-items: center;
 }
 
-form #log_button {
-    margin-top:5% ;
-    justify-content: center;
-    
+#input_tab {
+    background-color: #C18845 ;
+    border-radius: 30px;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

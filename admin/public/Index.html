@@ -24,16 +24,19 @@
 
 <div id="rdv">
     
+  <div id="tab">
     <ul>
-      <li>Nom</li>
-      <li>Téléphone</li>
-      <li>Mail</li>
-      <li>Nombre de personnes</li>
-      <li>Date/Heure</li>
-      <li>Nombre d'enfants</li>
-      <li>Numéro de table</li>
-      <li>Modifier</li>
-      <li>Suprimer</li>
+      <li>
+      Nom
+      Téléphone
+      Mail
+      Nombre de personnes
+      Date/Heure
+      Nombre d'enfants
+      Numéro de table
+      Modifier
+      Suprimer
+      </li>
     </ul>
 
     <ul>
@@ -50,7 +53,9 @@
       </li>
     </ul>
 
-    <div id="input_tab">
+  </div>
+
+  <div id="input_tab">
       <p>Nom : </p>
       <input v-model="newRes.nom"/>
       <p>Telephone : </p>
@@ -66,15 +71,12 @@
       <p>Numero de table : </p>
       <input v-model="newRes.num_table"/>
 
-      <button @click="add">+</button>
-    </div>
+      <button @click="add"> Ajouter </button>
+  </div>
 
 </div>
 </body>
 
-<footer>
-    <h1>Admin</h1>
-</footer>
 
 <script src="../src/js/script_index.js" defer></script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

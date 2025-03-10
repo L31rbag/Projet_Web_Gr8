@@ -26,10 +26,8 @@ body {
     background-color: red;
     padding: 20px;
     margin: 20px;
-}
-
-.img_restau {
-
+    display: flex;
+    justify-content: center;
 }
 
 #barre {
@@ -43,6 +41,8 @@ body {
     background-color: yellow;
     margin: 20px;
     border-radius: 30px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 

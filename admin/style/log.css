@@ -11,6 +11,7 @@ body {
     justify-content: center;
     margin-top: 200px;
     margin-bottom: 200px;
+    font-family: sans-serif;
 }
 
 #title {
@@ -45,7 +46,7 @@ form .log_input {
     margin-left: 25%;
 }
 
-form #log_button button {
+form #log_button  {
     width: 50%;
     margin-left: 25%;
     margin-bottom: 5%;

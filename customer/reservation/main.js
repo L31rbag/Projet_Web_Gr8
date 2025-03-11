@@ -7,7 +7,10 @@ createApp({
     };
   },
 
-  methods:{
+  computed: {
+  },
+
+  methods:{  
   }
 
 }).mount('#app')

@@ -34,8 +34,14 @@
         <select v-model="nombre" id="nombre">
           <option value="" selected disabled hidden>Choisissez</option>
           <option v-for="n in 8" value = n required> {{ n }}</option>
-        </select>
+        </select> <br><br>
 
+        <label for="nb_pers">Service </label> <br>
+        <input type="radio" id="check1" name="serv" value="midi" />
+        <label for="check1">Midi</label>
+  
+        <input type="radio" id="check2" name="serv" value="soir" />
+        <label for="check2">Soir</label>
         <br><br>
 
         <input type="submit" value="Réserver" id="boutonEnvoi">

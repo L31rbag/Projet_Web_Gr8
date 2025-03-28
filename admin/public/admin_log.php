@@ -1,15 +1,15 @@
 <?php
+include("../../db/db_connect.php");
+include("../src/crud/admin_crud.php");
 
-include("db/db_connect.php");
-include("db/db_disconnect.php");
+session_start();
 
 if(isset($_POST["login"])){
     $liste=liste_admin($conn);
     for($i=0;$i<count($liste);$i++){
-        if($_POST["login"]==$liste[$i]["login"] && $_POST["mdp"]==$liste[$i]["mdp"]){
-
-            $_SESSION["xyz"]=time();
-            header("Index.html");
+        if($_POST["login"]==$liste[$i]["name"] && $_POST["mdp"]==$liste[$i]["password"]){
+            $_SESSION["admin"]=time();
+            header("Location: Index.html");
         } 
     }
 }

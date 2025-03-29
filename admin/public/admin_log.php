@@ -9,7 +9,7 @@ if(isset($_POST["login"])){
     for($i=0;$i<count($liste);$i++){
         if($_POST["login"]==$liste[$i]["name"] && $_POST["mdp"]==$liste[$i]["password"]){
             $_SESSION["admin"]=time();
-            header("Location: Index.html");
+            header("Location: admin_texte.php");
         } 
     }
 }

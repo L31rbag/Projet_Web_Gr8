@@ -1,9 +1,6 @@
 <?php
 include_once("../../db/db_connect.php");
 
-$sql = "SELECT texte FROM paragrapheMenu WHERE id = 1";
-$result = $conn->query($sql);
-
 
 if(isset($_POST["nom"])
 && isset($_POST["telephone"])

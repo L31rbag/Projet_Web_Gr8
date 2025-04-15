@@ -3,11 +3,11 @@
       <h2 class="form-titre">Réservation</h2>
       <p class="form-soustitre">Réservez votre table au Ziravene</p>
       
-      <form @submit.prevent="submitForm">
+      <form @submit.prevent="submitForm" method="POST" action="./../ajout_resa.php">
         <div class="form-ligne">
           <div class="form-g">
             <label for="nom" class="demande">Nom :</label>
-            <input v-model="form.nom" id="nom" type="text" class="input" required />
+            <input v-model="form.nom" id="nom" type="text" name="nom" class="input" required />
           </div>
           
           
@@ -16,31 +16,31 @@
         <div class="form-ligne">
           <div class="form-g">
             <label for="telephone" class="demande">Téléphone :</label>
-            <input v-model="form.telephone" id="telephone" type="tel" class="input" required />
+            <input v-model="form.telephone" id="telephone" name="telephone" type="tel" class="input" required />
           </div>
           
           <div class="form-g">
             <label for="email" class="demande">Email :</label>
-            <input v-model="form.email" id="email" type="email" class="input" required />
+            <input v-model="form.email" id="email" type="email" name="email" class="input" required />
           </div>
         </div>
         
         <div class="form-ligne">
           <div class="form-g">
             <label for="personne" class="demande">Nombre de personnes :</label>
-            <input v-model="form.personne" id="personne" type="number" min="1" max="20" class="input" required />
+            <input v-model="form.personne" id="personne" type="number" name="nbPersonne" min="1" max="8" class="input" required />
           </div>
           
           <div class="form-g">
             <label for="date" class="demande">Date :</label>
-            <input v-model="form.date" id="date" type="date" class="input" required />
+            <input v-model="form.date" id="date" type="date" class="input" name="date" required />
           </div>
         </div>
         
         <div class="form-ligne">
           <div class="form-g ">
             <label for="heure" class="demande">Heure :</label>
-            <select v-model="form.heure" id="heure" class="input" required>
+            <select v-model="form.heure" id="heure" class="input"name="date" required>
               <option value="" disabled selected>Choisir une heure</option>
               <option v-for="heure in heuresDisponibles" :key="heure" :value="heure">
                 {{ heure }}
@@ -52,7 +52,7 @@
         <div class="form-ligne">
           <div class="form-g ">
             <label for="message" class="demande">Message (optionnel) :</label>
-            <textarea v-model="form.message" id="message" class="input textarea" lignes="2"></textarea><!--double class-->
+            <textarea v-model="form.message" id="message" class="input textarea" name="message" lignes="2"></textarea><!--double class-->
           </div>
         </div>
         

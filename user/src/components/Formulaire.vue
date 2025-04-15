@@ -40,7 +40,7 @@
         <div class="form-ligne">
           <div class="form-g ">
             <label for="heure" class="demande">Heure :</label>
-            <select v-model="form.heure" id="heure" class="input"name="date" required>
+            <select v-model="form.heure" id="heure" class="input" name="service" required>
               <option value="" disabled selected>Choisir une heure</option>
               <option v-for="heure in heuresDisponibles" :key="heure" :value="heure">
                 {{ heure }}

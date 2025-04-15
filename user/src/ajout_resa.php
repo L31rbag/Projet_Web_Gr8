@@ -15,7 +15,12 @@ $tel = $_POST["telephone"];
 $mail = $_POST["email"];
 $nbp = $_POST["nbPersonne"];
 $date = $_POST["date"];
-$serv = $_POST["service"];
+$service = $_POST["service"];
+if ($service == 'MIDI'){
+      $serv = 0;
+}else if ($service == 'SOIR'){
+      $serv = 1;
+}
 $mess = $_POST["message"];
 
 $sql = "INSERT INTO reservation (`nom`, `telephone`, `email`, `nbPersonne`, `date`, `service`, `message`) 

@@ -130,12 +130,6 @@ if(isset($_POST["action"]) && isset($_POST["id"])){
 
 ?>
 
-<?php
-
-liste_resa_mat($conn, $jour, 0);
-
-?>
-
 <!-- ta-->
 <?php
 

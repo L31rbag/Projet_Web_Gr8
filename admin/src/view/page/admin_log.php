@@ -1,6 +1,6 @@
 <?php
-include("../../db/db_connect.php");
-include("../src/crud/admin_crud.php");
+include("./db/db_connect.php");
+include("./admin/src/model/admin_crud.php");
 
 session_start();
 
@@ -9,7 +9,8 @@ if(isset($_POST["login"])){
     for($i=0;$i<count($liste);$i++){
         if($_POST["login"]==$liste[$i]["name"] && $_POST["mdp"]==$liste[$i]["password"]){
             $_SESSION["admin"]=time();
-            header("Location: admin_texte.php");
+            header("Location: index.php?page=menu");
+            //include("admin/src/view/page/admin_menu.php");
         } 
     }
 }
@@ -21,15 +22,15 @@ if(isset($_POST["login"])){
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Connexion</title>
-	<link rel="stylesheet" type="text/css" href="../style/log.css">
+	<link rel="stylesheet" type="text/css" href="./admin/css/log.css">
 </head>
 
 <body>
     <header>
-        <a id="title" href="../../customer/index.html"><h1>Le Ziravène</h1></a>
+        <h1>Le Ziravène</h1>
     </header>
 
-    <form method="POST" action="admin_log.php">
+    <form method="POST" action="index.php">
         <h1> Admin </h1>
         <div class="log_input">
             <p>Identifiant:</p>
@@ -37,9 +38,9 @@ if(isset($_POST["login"])){
         </div>
         <div class="log_input">
             <p>Mot de passe:</p>
-            <input type="text" name="mdp" required/><br>
+            <input type="password" name="mdp" required/><br>
         </div>
-        <input id="log_button" type="submit" />
+        <input id="log_button" type="submit" value="Connexion" />
     </form>
 
 </body>

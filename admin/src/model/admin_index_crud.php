@@ -44,4 +44,37 @@ function select_reservation($conn, $date){
 	return $ret ; 
 }
 
+
+
+
+function liste_reservation($conn) {
+    $sql = "SELECT * 
+            FROM reservation 
+            ORDER BY num_reservation;"; 
+
+    $res = mysqli_query($conn, $sql);
+    
+    // Vérifiez si la requête a réussi
+    if (!$res) {
+        die(json_encode(['error' => 'Erreur dans la requête SQL: ' . mysqli_error($conn)]));
+    }
+
+    return rs_to_tab_reservation($res);
+}
+
+function rs_to_tab_reservation($rs) {
+    $tab = []; 
+    while ($row = mysqli_fetch_assoc($rs)) {
+        $tab[] = $row;    
+    }
+    return $tab;
+}
+
+header("Content-Type: application/json; charset=utf-8"); // Corriger le charset
+
+// Encodage en JSON
+echo json_encode(liste_reservation($conn));
+
+
+
 ?>

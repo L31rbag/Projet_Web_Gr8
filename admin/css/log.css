@@ -5,26 +5,31 @@ header {
     width: 100%;
 }
 
+h1 {
+    font-size:36px;
+    text-align:center;
+}
+
 body {
-    background-color: #ffc183;
+    background-color: #E3CD8B;
     display: flex;
     justify-content: center;
     margin-top: 200px;
     margin-bottom: 200px;
     font-family: sans-serif;
+    color: white;
 }
 
 #title {
     text-decoration:none;
-    color: azure;
     text-align: center;
 }
 
 form {
   width:420px;
   background: #864401;
-  color:#ffffff;
   border-radius: 20%;
+  height: 320px;
 }
 
 form h1 {

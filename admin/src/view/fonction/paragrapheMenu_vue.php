@@ -30,14 +30,14 @@ function html_tr_paragraphe($paragraphe){
 	$texte 	= $paragraphe["texte"] ; 
 
 
-	$html.="\t\t<td>$id</td>\n" ;
+	// $html.="\t\t<td>$id</td>\n" ;
 	$html.="\t\t<td>$texte</td>\n" ;
 
 	$a_update=html_a_update_paragraphe($id) ; 
 	$html.="\t\t<td>$a_update</td>\n" ;
 	
-	$a_delete=html_a_delete_paragraphe($id) ; 
-	$html.="\t\t<td>$a_delete</td>\n" ;
+	// $a_delete=html_a_delete_paragraphe($id) ; 
+	// $html.="\t\t<td>$a_delete</td>\n" ;
 	
 	$html.="\t</tr>\n" ; 
 	return $html ;
@@ -46,18 +46,18 @@ function html_tr_paragraphe($paragraphe){
 /**
  * Lien de suppression
  */
-function html_a_delete_paragraphe($id){
-	$href="admin_texte.php?action=delete&table=paragrapheMenu&id=$id" ; 
-	$html="<a href='$href' ><img src='../image/trash_bin.png' width='30px'></a>" ;
-       	return $html ; 	
-}
+// function html_a_delete_paragraphe($id){
+// 	$href="index.php?page=texte&action=delete&table=paragrapheMenu&id=$id" ; 
+// 	$html="<a href='$href' ><img src='admin/img/trash_bin.png' width='30px'></a>" ;
+//        	return $html ; 	
+// }
 
 /**
  * Lien de maj
  */
 function html_a_update_paragraphe($id){
-	$href="admin_texte.php?action=update&table=paragrapheMenu&id=$id" ; 
-	$html="<a href='$href' ><img src='../images/pencil.png' width='30px'></a>" ;
+	$href="index.php?page=texte&action=update&table=paragrapheMenu&id=$id" ; 
+	$html="<a href='$href' ><img src='admin/img/modif_icon.png' width='30px'></a>" ;
        	return $html ; 	
 }
 
@@ -69,7 +69,7 @@ function html_form_maj($paragraphe){
 	$texte 	= $paragraphe["texte"] ; 
 
 	
-	$html="<form action='admin_texte.php' method='POST'>\n" ; 
+	$html="<form action='index.php?page=texte' method='POST'>\n" ; 
 	$html.="<label for='texte'>Texte</label>\n" ;
 	$html.="\t<input type='text' name='texte' value='$texte'>\n" ; 
 	$html.="\t<input type='hidden' name='id' value='$id'>\n" ; 
@@ -85,7 +85,7 @@ function html_form_maj($paragraphe){
  */
 function html_form_create(){
 	
-	$html="<form action='admin_texte.php' method='POST'>\n" ; 
+	$html="<form action='index.php?page=texte' method='POST'>\n" ; 
 	$html.="<label for='texte'>Texte</label>\n" ;
 	$html.="\t<input type='text' name='texte' >\n" ; 
 	$html.="\t<input type='hidden' name='action' value='create'>\n" ; 

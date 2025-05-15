@@ -1,11 +1,15 @@
 <?php
-include("../../db/db_connect.php");
-include("../src/crud/paragrapheMenu_crud.php");
-include("../src/vue/paragrapheMenu_vue.php") ;
+// include("../../../../db/db_connect.php");
+// include("../../model/paragrapheMenu_crud.php");
+// include("../fonction/paragrapheMenu_vue.php") ;
+
+include("db/db_connect.php");
+include("admin/src/model/paragrapheMenu_crud.php");
+include("admin/src/view/fonction/paragrapheMenu_vue.php");
 
 session_start();
 if(!$_SESSION["admin"]){
-    header("Location: admin_log.php");
+    header("Location: index.php");
   }
 
 ?>
@@ -15,23 +19,29 @@ if(!$_SESSION["admin"]){
 <head>
   <meta charset="utf-8">
   <title>AdminTexte</title>
-  <link rel="stylesheet" href="../style/texte.css">
+  <link rel="stylesheet" href="admin/css/style_menu.css">
 </head>
 
 <header>
-    <a href="./admin_resa.php">Reservation</a>
+	<div id=lien_header>
+    <a href="index.php?page=resa">Reservation</a>
+	<a href="index.php?page=menu">Menu</a>
+	<a href="admin/src/view/page/admin_deco.php">Deconnexion</a>
+</div>
     <h1>Admin</h1>
-    <img class="img_logo" src="../src/image/Ziravene_logo.jpg"/>
+    <img class="img_logo" src="admin/img/Ziravene_logo.jpg"/>
 </header>
 
 <body>
 
+<div id="Menu">
+<h2>Paragraphe</h2>
 <?php
+
 
 /**
  * Controlleur : Traite les actions provenant des requetes POST et GET
  */
-
 if(isset($_GET["action"]) && isset($_GET["id"])){
 
 	$action=$_GET["action"];
@@ -66,17 +76,19 @@ if(isset($_POST["action"]) && isset($_POST["id"])){
 			
 	if($action=="update"){
 		/* traitement du formulaire d'ajout */
-		update_paragrapheMenu($conn, $id, $texte); 	
+		update_paragrapheMenu($conn, $id, $texte);
 
-	} elseif($action=="create"){
-		/* traitement du formulaire de maj */
-		insert_paragrapheMenu($conn, $texte); 
+
 	}
+	elseif($action=="create"){
+		insert_paragrapheMenu($conn, $texte);
+	/* traitement du formulaire de maj */}
+	
 }
 
 ?>
 
-<!-- tableau de gestion des etudiants -->
+<!-- ta-->
 <?php
 
 $paragraphes=liste_paragrapheMenu($conn) ;
@@ -85,9 +97,9 @@ echo($html) ;
 
 ?>
 
-<!-- lien d'ajout d'un etudiant -->
-<a href="admin_texte.php?table=paragrapheMenu&action=create&id=_">Ajouter un paragraphe</a>
+<!-- <a href="admin_texte.php?table=paragrapheMenu&action=create&id=_">Ajouter un paragraphe</a> -->
 
+</div>
 </body>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

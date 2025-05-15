@@ -1,5 +1,5 @@
 header {
-    background-color: #C18845;
+    background-color: #864401;
     top:0px;
     position:absolute;
     width: 100%;
@@ -8,6 +8,12 @@ header {
     justify-content: space-around;
     align-items: center;
     font-family: sans-serif;
+}
+
+#lien_header {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
 }
 
 .img_logo {
@@ -27,6 +33,11 @@ h1 {
     text-shadow: 1px 1px 2px black ;
 }
 
+h2 {
+    font-size: 2rem;
+    text-shadow: 1px 1px 2px black ;
+}
+
 body {
     background-color: #E3CD8B;
     display: flex;
@@ -34,48 +45,67 @@ body {
     margin-top: 200px;
     margin-bottom: 200px;
     font-family: sans-serif;
+    color: white;
 }
+
+
+/* Matrice */
 
 #restaurant {
     background-color: #C18845;
-    border-radius: 30px;
+    border-radius: 20px;
     padding: 20px;
     margin: 20px;
     display: flex;
     justify-content: center;
 }
 
+#matrice > table > tbody > tr > td {
+    background-color: red;
+    border-color: black;
+    padding: 10px;
+}
+
+
+
+/*C18845*/
 #barre {
-    background-color: #C18845;
+    background-color: #864401;
     padding: 4px;
-    border-radius: 30px;
+    border-radius: 20px;
     text-shadow: 1px 1px 2px black ;
 }
 
-/*#rdv {
-    margin: 20px;
-    border-radius: 30px;
+#date {
+    margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-}*/
-
-#tab {
-    background-color: #C18845 ;
-    border-radius: 30px;
-    padding: 20px;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
 }
 
-#input_tab {
-    background-color: #C18845 ;
-    border-radius: 30px;
+#table_res {
+    background-color: #C18845;
+    border-radius: 20px;
     margin: 20px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+#ajout_resa {
+    background-color: #864401;
+    border-style: solid;
+    border-color: black;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 1.6rem;
+}
+
+#t_res > tr > td {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+

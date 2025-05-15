@@ -60,10 +60,13 @@ body {
     justify-content: center;
 }
 
-#matrice > table > tbody > tr > td {
-    background-color: red;
+#mat_table > tr > td {
+    padding: 20px;
+}
+
+.vide {
+    background-color: blue;
     border-color: black;
-    padding: 10px;
 }
 
 

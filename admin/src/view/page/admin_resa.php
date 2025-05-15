@@ -39,16 +39,8 @@ else{
 </header>
 
 <body>
-<div id="restaurant">
 
-		<div id="matrice">
-		<table>
-			<tr id="0"> <td id="00"></td> <td id="01"></td> <td id="02"></td> <td id="03"></td>	</tr>
-			<tr id="1">	<td id="10"></td> <td id="11"></td> <td id="12"></td> <td id="13"></td> </tr>
-			<tr id="2">	<td id="20"></td> <td id="21"></td> <td id="22"></td> <td id="23"></td> </tr>
-			<tr id="3">	<td id="30"></td> <td id="31"></td> <td id="32"></td> <td id="33"></td> </tr>
-		</table>
-		</div>
+<div id="restaurant">
 
 </div>
 
@@ -57,7 +49,6 @@ else{
 
 </div>
 
-</form>
 
 <div id="table_res">
 
@@ -146,5 +137,6 @@ echo($html) ;
 
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./admin/js/matrice_resa.js" defer></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<template>
+npt<template>
   <div class="container">
     <section class="slides" id="page1">
       <div id="leftSide">

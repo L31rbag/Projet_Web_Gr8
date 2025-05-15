@@ -41,6 +41,7 @@ else{
 <body>
 
 <div id="restaurant">
+	<h2>Restaurant</h2>
 
 </div>
 

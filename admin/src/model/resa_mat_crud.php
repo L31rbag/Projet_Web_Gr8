@@ -1,5 +1,5 @@
 <?php
-include('../../../../db/db_connect.php');
+include('../../../db/db_connect.php');
 
 function liste_reservation($conn){
 	$sql="SELECT * FROM `reservation`"; 

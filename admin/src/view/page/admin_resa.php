@@ -135,8 +135,7 @@ echo($html) ;
 
 </div>
 
-
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="./admin/js/matrice_resa.js" defer></script>
+<script src="./js/matrice_resa.js" defer></script>
 </body>
 </html>

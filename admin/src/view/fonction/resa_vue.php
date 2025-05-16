@@ -88,7 +88,7 @@ function html_tr_resa($resa){
  */
 function html_a_delete_resa($id,$date){
 	$href="index.php?page=resa&action=delete&table=resa&id=$id&date=$date" ; 
-	$html="<a href='$href' ><img src='admin/img/trash_bin.png' width='30px'></a>" ;
+	$html="<a href='$href' ><img src='./img/trash_bin.png' width='30px'></a>" ;
        	return $html ; 	
 }
 
@@ -97,7 +97,7 @@ function html_a_delete_resa($id,$date){
  */
 function html_a_update_resa($id,$date){
 	$href="index.php?page=resa&action=update&table=resa&id=$id&date=$date" ; 
-	$html="<a href='$href' ><img src='admin/img/modif_icon.png' width='30px'></a>" ;
+	$html="<a href='$href' ><img src='./img/modif_icon.png' width='30px'></a>" ;
        	return $html ; 	
 }
 

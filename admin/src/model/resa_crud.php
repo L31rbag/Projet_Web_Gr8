@@ -12,13 +12,13 @@ function update_resa($conn, $id, $nom, $tel, $mail, $nb, $date, $serv, $mess){
 
 function select_resa($conn, $id){
     $sql ="SELECT * FROM `reservation` WHERE `id` = $id"; 
-    //echo($sql);
+    echo($sql);
     $ret=mysqli_query($conn, $sql);
     return mysqli_fetch_assoc($ret);
 }
 
 function liste_resa($conn,$jour){
-    $sql="SELECT * FROM `reservation` WHERE `date`='$jour' ORDER BY `service`";
+    $sql="SELECT * FROM `reservation` WHERE `date`='$jour' AND `message` NOT LIKE '%<%' ORDER BY `service`";
     global $debeug;
     if($debeug)echo $sql;
     $res = mysqli_query($conn,$sql);

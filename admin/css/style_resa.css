@@ -71,6 +71,8 @@ body {
     padding: 10px;
     text-align: center;
     border: solid black;
+    width: 5px;
+    height: 5px;
 }
 
 .vide {

@@ -13,6 +13,8 @@ const DROITE = 1;
 const HAUT = 2;
 const BAS = 3;
 
+const TAILLE_MATRICE = 20;
+
 /** renvoie une matrice nbLignes x NbColonnes */
 function creerMatrice(nbLignes, nbColonnes) {
   const matrice = [];
@@ -247,22 +249,60 @@ function ajouteGroupe(matrice, id, nb_personnes){
 /*  le parse a été fait  en amont */
 function range(data_reservation /* id: str, nb_pers:int */){
 
-    let mat = creerMatrice(12,12);
-    for (let i = 0; i < data_reservation.length; i++){
-        let id = data_reservation[i]["id"]
-        let nb_pers = data_reservation[i]["nb_pers"]
-        mat = ajouteGroupe(mat, id, nb_pers);
-    }
+    let mat = creerMatrice(TAILLE_MATRICE,TAILLE_MATRICE);
+
+    data_reservation.forEach((element) =>{
+      let id = element["id"];
+      let nb_pers = element["nb_pers"];
+      mat = ajouteGroupe(mat, id, nb_pers);
+    });
     return mat;
 }
 
+// function appel_reservations(){
+//   const response = axios.get("./src/model/resa_mat_crud.php");
+//   let liste_resa = [];
+//   let id = 1;
+//   let res = []
 
-function appel_reservations(){
-  axios.get("../src/model/resa_mat_crud.php").then( response => {
-      response.data.forEach( res => {
-          console.log(res);
-      })
+//   axios.get("./src/model/resa_mat_crud.php").then( response => {
+//     response.data.forEach( res => {
+//       let elem = {
+//         "id" : id.toString(), 
+//         "nb_pers" : parseInt(res["nbPersonne"]), 
+//         "nom" : res["nom"]
+//       };
+//       liste_resa.push(elem);
+//       id++;
+
+//     })
+
+//     res = range(liste_resa);
+//   })
+//   return res;
+// }
+
+// const plan = appel_reservations();
+// afficheMatrice(plan);
+
+
+
+async function appel_reservations(){
+  const response = await axios.get("./src/model/resa_mat_crud.php");
+  let liste_resa = [];
+  let id = 1;
+
+  response.data.forEach( res => {
+    let elem = {"id" : id.toString(), 
+      "nb_pers" : parseInt(res["nbPersonne"]), 
+      "nom" : res["nom"]};
+    liste_resa.push(elem)
+    id++;
   })
+  return liste_resa;
 }
 
-appel_reservations();
+(async () => {
+  const data = await appel_reservations();
+  const plan = range(data);
+})();

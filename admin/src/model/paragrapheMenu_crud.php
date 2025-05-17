@@ -2,14 +2,14 @@
 
 function update_paragrapheMenu($conn, $id, $texte){
     $sql ="UPDATE `paragrapheMenu` SET `texte` = '$texte' WHERE `id` = $id"; 	
-    echo($sql);
+    //echo($sql);
 	$ret=mysqli_query($conn, $sql);
         return $ret; 
 }
 
 function select_paragrapheMenu($conn,$id){
     $sql ="SELECT * FROM `paragrapheMenu`WHERE `id` = $id"; 
-    echo($sql);
+    //echo($sql);
     $ret=mysqli_query($conn, $sql);
     return mysqli_fetch_assoc($ret);
 }

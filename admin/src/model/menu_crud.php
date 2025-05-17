@@ -4,14 +4,14 @@ function update_menu($conn, $id, $nom, $descr, $prix, $type){
     $descr = addslashes($descr);
     $nom = addslashes($nom);
     $sql ="UPDATE `menu` SET `nom` = '$nom',`description` = '$descr',`prix`='$prix',`type`='$type' WHERE `id` = '$id'";	
-    echo($sql);
+    //echo($sql);
 	$ret=mysqli_query($conn, $sql);
         return $ret; 
 }
 
 function select_menu($conn,$id){
     $sql ="SELECT * FROM `menu`WHERE `id` = $id"; 
-    echo($sql);
+    //echo($sql);
     $ret=mysqli_query($conn, $sql);
     return mysqli_fetch_assoc($ret);
 }

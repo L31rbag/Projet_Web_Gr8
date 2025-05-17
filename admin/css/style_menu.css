@@ -1,6 +1,7 @@
 header {
     background-color: #864401;
     top:0px;
+    left:0px;
     position:absolute;
     width: 100%;
     display: flex;
@@ -72,4 +73,9 @@ tr > td {
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
+}
+
+#here {
+    opacity : 0.5;
+    color : white;
 }

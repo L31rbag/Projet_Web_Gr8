@@ -79,7 +79,7 @@ function html_tr_menu($menu){
  */
 function html_a_delete_menu($id){
 	$href="index.php?page=menu&action=delete&table=menu&id=$id" ; 
-	$html="<a href='$href' ><img src='admin/img/trash_bin.png' width='30px'></a>" ;
+	$html="<a href='$href' ><img src='./img/trash_bin.png' width='30px'></a>" ;
        	return $html ; 	
 }
 
@@ -88,7 +88,7 @@ function html_a_delete_menu($id){
  */
 function html_a_update_menu($id){
 	$href="index.php?page=menu&action=update&table=menu&id=$id" ; 
-	$html="<a href='$href' ><img src='admin/img/modif_icon.png' width='30px'></a>" ;
+	$html="<a href='$href' ><img src='./img/modif_icon.png' width='30px'></a>" ;
        	return $html ; 	
 }
 
@@ -114,7 +114,7 @@ function html_form_maj($menu){
     $html.="\t<input type='text' name='type' value='$type'>\n" ; 
 	$html.="\t<input type='hidden' name='id' value='$id'>\n" ; 
 	$html.="\t<input type='hidden' name='action' value='update'>\n" ; 
-	$html.="\t<input type='submit'>\n" ; 
+	$html.="\t<input type='submit' value='Modifier'>\n" ; 
 	$html.="</form>\n";
 
 	return $html ; 
@@ -136,7 +136,7 @@ function html_form_create(){
 	$html.="\t<input type='text' name='type'>\n" ;
 	$html.="\t<input type='hidden' name='action' value='create'>\n" ; 
 	$html.="\t<input type='hidden' name='id'>\n" ; 
-	$html.="\t<input type='submit'>\n" ; 
+	$html.="\t<input type='submit' value='Ajouter'>\n" ; 
 	$html.="</form>\n";
 
 	return $html ; 

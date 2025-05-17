@@ -3,9 +3,9 @@
 // include("../../model/resa_crud.php");
 // include("../fonction/resa_vue.php");
 
-include("db/db_connect.php");
-include("admin/src/model/resa_crud.php");
-include("admin/src/view/fonction/resa_vue.php");
+include("../db/db_connect.php");
+include("./src/model/resa_crud.php");
+include("./src/view/fonction/resa_vue.php");
 
 session_start();
 if(!$_SESSION["admin"]){
@@ -24,24 +24,27 @@ else{
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Admin</title>
-  <link rel="stylesheet" href="admin/css/style_resa.css">
+  <title>Le Ziravène - Admin</title>
+  <link rel="stylesheet" href="./css/style_resa.css">
 </head>
 
 <header>
 	  <div id=lien_header>
       <a href="./index.php?page=texte">Texte</a>
+	  <a id="here" href="index.php?page=resa">Reservation</a>
 		  <a href="./index.php?page=menu">Menu</a>
-      <a href="./admin/src/view/page/admin_deco.php">Deconnexion</a>
+      <a href="./src/view/page/admin_deco.php">Deconnexion</a>
 	  </div>
     <h1>Admin</h1>
-    <img class="img_logo" src="admin/img/Ziravene_logo.jpg"/>
+    <img class="img_logo" src="./img/Ziravene_logo.jpg"/>
 </header>
 
 <body>
 
 <div id="restaurant">
-	<h2>Restaurant</h2>
+
+<h2>Restaurant</h2>
+
 
 </div>
 
@@ -136,7 +139,9 @@ echo($html) ;
 
 </div>
 
+
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./js/matrice_resa.js" defer></script>
+<script src="./js/plan_table.js" defer></script>
 </body>
 </html>

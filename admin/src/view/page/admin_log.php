@@ -1,6 +1,6 @@
 <?php
-include("./db/db_connect.php");
-include("./admin/src/model/admin_crud.php");
+include("../db/db_connect.php");
+include("./src/model/admin_crud.php");
 
 session_start();
 
@@ -22,12 +22,14 @@ if(isset($_POST["login"])){
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Connexion</title>
-	<link rel="stylesheet" type="text/css" href="./admin/css/log.css">
+	<link rel="stylesheet" type="text/css" href="./css/log.css">
 </head>
 
 <body>
     <header>
+        <a href="../user/index.html">Page client</a>
         <h1>Le Ziravène</h1>
+        <img class="img_logo" src="./img/Ziravene_logo.jpg"/>
     </header>
 
     <form method="POST" action="index.php">

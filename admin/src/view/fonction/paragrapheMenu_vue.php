@@ -57,7 +57,7 @@ function html_tr_paragraphe($paragraphe){
  */
 function html_a_update_paragraphe($id){
 	$href="index.php?page=texte&action=update&table=paragrapheMenu&id=$id" ; 
-	$html="<a href='$href' ><img src='admin/img/modif_icon.png' width='30px'></a>" ;
+	$html="<a href='$href' ><img src='./img/modif_icon.png' width='30px'></a>" ;
        	return $html ; 	
 }
 
@@ -73,8 +73,8 @@ function html_form_maj($paragraphe){
 	$html.="<label for='texte'>Texte</label>\n" ;
 	$html.="\t<input type='text' name='texte' value='$texte'>\n" ; 
 	$html.="\t<input type='hidden' name='id' value='$id'>\n" ; 
-	$html.="\t<input type='hidden' name='action' value='update'>\n" ; 
-	$html.="\t<input type='submit'>\n" ; 
+	$html.="\t<input type='hidden' name='action'>\n" ; 
+	$html.="\t<input type='submit' value='Modifier'>\n" ; 
 	$html.="</form>\n";
 
 	return $html ; 

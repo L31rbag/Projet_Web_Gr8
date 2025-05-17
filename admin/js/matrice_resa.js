@@ -6,7 +6,9 @@ function create(tag, container, text=null) {
     return element
 }
 
-const divRestaurant = document.querySelector("#restaurant");
+const divRestaurant = document.querySelector("#restaurant")
+
+let mat = range(data_reservation)
 
 
 function afficher_matrice() {
@@ -22,9 +24,19 @@ function afficher_matrice() {
         tr.id = i.toString()
 
         for (let y = 0; y < 12; y++) {
-            let td = create("td", tr)
+            let td = create("td", tr, mat[i][y])
             td.id = i.toString() + y.toString()
-            td.classList.add("vide")
+
+            if (mat[i][y] == "x") {
+                td.classList.add("chaise");
+
+            } else if (mat[i][y] == ".") {
+                td.classList.add("vide");
+
+            } else {
+                td.classList.add("table")
+            }
+
         }
     }
 

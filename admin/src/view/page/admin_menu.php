@@ -1,10 +1,10 @@
 <?php
 // include("../../../../db/db_connect.php");
-include("db/db_connect.php");
+include("../db/db_connect.php");
 // include("../../model/menu_crud.php");
-include("admin/src/model/menu_crud.php");
+include("./src/model/menu_crud.php");
 // include("../fonction/menu_vue.php");
-include("admin/src/view/fonction/menu_vue.php");
+include("./src/view/fonction/menu_vue.php");
 session_start();
 if(!$_SESSION["admin"]){
     header("Location: index.php");
@@ -16,20 +16,21 @@ if(!$_SESSION["admin"]){
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>AdminMenu</title>
+  <title>Le Ziravène - Admin</title>
   <!-- <link rel="stylesheet" href="../../../css/style_menu.css"> -->
-  <link rel="stylesheet" href="admin/css/style_menu.css">
+  <link rel="stylesheet" href="./css/style_menu.css">
 </head>
 
 <header>
 	<div id=lien_header> 
-    	<a href="./index.php?page=resa">Reservation</a>
-		<a href="./index.php?page=texte">Texte</a>
-		<a href="./admin/src/view/page/admin_deco.php">Deconnexion</a>
+    	<a href="index.php?page=texte">Texte</a>
+    	<a href="index.php?page=resa">Reservation</a>
+		<a id="here" href="index.php?page=menu">Menu</a>
+		<a href="./src/view/page/admin_deco.php">Deconnexion</a>
 	</div>
     <h1>Admin</h1>
     <!-- <img class="img_logo" src="../../../img/Ziravene_logo.jpg"/> -->
-	 <img class="img_logo" src="admin/img/Ziravene_logo.jpg"/>
+	 <img class="img_logo" src="./img/Ziravene_logo.jpg"/>
 </header>
 
 <body>

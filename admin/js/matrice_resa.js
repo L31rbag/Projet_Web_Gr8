@@ -8,24 +8,21 @@ function create(tag, container, text=null) {
 
 const divRestaurant = document.querySelector("#restaurant")
 
-let mat = range(data_reservation)
-
-
-function afficher_matrice() {
+function afficher_plan(mat) {
     let divMatrice = create("div", divRestaurant)
     divMatrice.id = 'matrice'
 
     let matTable = create("table", divMatrice)
     matTable.id = 'mat_table'
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 20; i++) {
 
         let tr = create("tr", matTable)
         tr.id = i.toString()
 
-        for (let y = 0; y < 12; y++) {
+        for (let y = 0; y < 20; y++) {
             let td = create("td", tr, mat[i][y])
-            td.id = i.toString() + y.toString()
+            td.id = i.toString() + "," + y.toString()
 
             if (mat[i][y] == "x") {
                 td.classList.add("chaise");
@@ -42,4 +39,4 @@ function afficher_matrice() {
 
 }
 
-afficher_matrice()
+afficher_plan(plan)

@@ -9,4 +9,4 @@
     <h1>NIIIIIIGGGGEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRR</h1>
 </body>
 </html>
- <script src="script.js" defer></script> 
+ <script src="plan_table.js" defer></script> 

@@ -257,13 +257,12 @@ function range(data_reservation /* id: str, nb_pers:int */){
 }
 
 
+function appel_reservations(){
+  axios.get("../src/model/resa_mat_crud.php").then( response => {
+      response.data.forEach( res => {
+          console.log(res);
+      })
+  })
+}
 
-// $.ajax({
-//   url: 'data.php',
-//   success: function(data) {
-//     var name = data.name;
-//     var age = data.age;
-//     var city = data.city;
-//     console.log(name, age, city);
-//   }
-// });
+appel_reservations();

@@ -63,6 +63,10 @@ body {
     align-items: center;
 }
 
+#texte_service {
+    font-size: 1.8rem;
+}
+
 #mat_table {
     margin-bottom: 20px;
 }

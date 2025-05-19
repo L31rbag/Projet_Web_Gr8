@@ -1,7 +1,8 @@
 const NB_CHAISE_MAX = 40;
 
 const VIDE = '.';
-const CHAISE = 'x';
+const CHAISE = 'c';
+const TABLE = 't' ;
 /*
 '.' = vide
 'nb' = table
@@ -175,9 +176,10 @@ function auMoinsUnePlace(espace_autour_table){
 }
 
 /** ajoute une chaise sur une table en renvoyant le plan du restaurant*/
-function ajouteUneChaise(matrice, coo_tables) {
+function ajouteUneChaise(matrice, coo_tables, id) {
   let est_ajoute = false;
   let ind_table = 0;
+  const chaise_id = CHAISE.concat(id);
 
   while (!est_ajoute && ind_table < coo_tables.length) {
     let x_table = coo_tables[ind_table][0];
@@ -186,13 +188,13 @@ function ajouteUneChaise(matrice, coo_tables) {
 
     if (auMoinsUnePlace(place_autour_table)) {
       if (place_autour_table[GAUCHE]) {
-        matrice[y_table][x_table - 1] = CHAISE;
+        matrice[y_table][x_table - 1] = chaise_id;
       } else if (place_autour_table[DROITE]) {
-        matrice[y_table][x_table + 1] = CHAISE;
+        matrice[y_table][x_table + 1] = chaise_id;
       } else if (place_autour_table[HAUT]) {
-        matrice[y_table - 1][x_table] = CHAISE;
+        matrice[y_table - 1][x_table] = chaise_id;
       } else if (place_autour_table[BAS]) {
-        matrice[y_table + 1][x_table] = CHAISE;
+        matrice[y_table + 1][x_table] = chaise_id;
       }
       est_ajoute = true;
     } else {
@@ -206,15 +208,17 @@ function ajouteUneChaise(matrice, coo_tables) {
 
 /** Place les tables et les chaises pour une réservation */
 function placeTablesChaises(matrice, coo_tables, nb_personnes, id){
+  //TABLES
   for(let i=0; i< coo_tables.length; i++){
     let x = coo_tables[i][0];
     let y = coo_tables[i][1];
-    matrice[y][x] = id;
+    matrice[y][x] = TABLE.concat(id);
   }
 
+  //CHAISES
   let cpt = nb_personnes
   while(cpt != 0){
-    matrice = ajouteUneChaise(matrice, coo_tables);
+    matrice = ajouteUneChaise(matrice, coo_tables, id);
     cpt--;
   }
   return matrice
@@ -232,8 +236,8 @@ function ajouteGroupe(matrice, id, nb_personnes){
       while(y < nbColonnes && placement_choisi.length == 0){
         let possibilites = arrangementTablePossibles(nb_personnes, x, y);
         for (let id = 0; id < possibilites.length; id++){
-          if( estPosable(matrice, possibilites[id])){
-            placement_choisi = possibilites[id];
+          if( estPosable(matrice, coo_tables)){
+            placement_choisi = coo_tables;
             break;
           }
         }

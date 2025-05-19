@@ -1,7 +1,8 @@
 const NB_CHAISE_MAX = 40;
 
 const VIDE = '.';
-const CHAISE = 'x';
+const CHAISE = 'c';
+const TABLE = 't' ;
 /*
 '.' = vide
 'nb' = table

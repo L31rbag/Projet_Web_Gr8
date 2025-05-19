@@ -38,7 +38,6 @@ if(!$_SESSION["admin"]){
 <div id="Menu">
 
 <h2>Menu</h2>
-<p> Pour les types : 1 = entrée, 2 = plat, 3 = dessert</p>
 <?php
 
 
@@ -104,6 +103,8 @@ echo($html) ;
 
 <!-- lien d'ajout d'un menu -->
 <a id="ajout_menu" href="index.php?page=menu&table=menu&action=create&id=_">Ajouter un plat au menu</a>
+
+<p>*Pour les types : 1 = entrée, 2 = plat, 3 = dessert</p>
 
 </div>
 

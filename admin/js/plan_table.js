@@ -209,7 +209,7 @@ function placeTablesChaises(matrice, coo_tables, nb_personnes, id){
   for(let i=0; i< coo_tables.length; i++){
     let x = coo_tables[i][0];
     let y = coo_tables[i][1];
-    matrice[x][y] = id;
+    matrice[y][x] = id;
   }
 
   let cpt = nb_personnes

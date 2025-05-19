@@ -347,7 +347,7 @@ function afficher_plan(mat,service) {
             let td = create("td", tr, mat[i][y])
             td.id = i.toString() + "," + y.toString()
 
-            if (mat[i][y][0] == CHAISE) {
+            if (mat[i][y].charAt(0) == CHAISE) {
                 td.classList.add("chaise");
 
             } else if (mat[i][y] == VIDE) {

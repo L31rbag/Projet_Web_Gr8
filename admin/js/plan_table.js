@@ -220,6 +220,7 @@ function placeTablesChaises(matrice, coo_tables, nb_personnes, id){
   return matrice
 }
 
+/** rajoute un groupe de gens dans un plan de table et le renvoi */
 function ajouteGroupe(matrice, id, nb_personnes){
     const nbLignes = matrice.length;
     const nbColonnes = matrice[0].length;
@@ -285,6 +286,8 @@ function range(data_reservation /* id: str, nb_pers:int */){
 // const plan = appel_reservations();
 // afficheMatrice(plan);
 
+
+/** creer une nouvelle balise sur un conteneur */
 function create(tag, container, text=null) {
     const element = document.createElement(tag)
     if (text)
@@ -297,6 +300,7 @@ let service = 1;
 const divRestaurant = document.querySelector("#restaurant");
 divRestaurant.addEventListener("click", change_plan);
 
+/** change la selection entre midi et soir pour le plan */
 function change_service(service){
   if(service==0){
     service = 1;
@@ -307,6 +311,7 @@ function change_service(service){
   return service;
 }
 
+/** chaines correspondant au service  */
 function quel_service(service){
   let res ="";
   if(service==0){
@@ -318,6 +323,7 @@ function quel_service(service){
   return res;
 }
 
+/** affiche le plan sur le site */
 function afficher_plan(mat,service) {
     let text = create("p", divRestaurant,quel_service(service));
     text.id = "texte_service";
@@ -352,6 +358,7 @@ function afficher_plan(mat,service) {
 
 }
 
+/** collecte les données des réservations pour le plan de table */
 async function appel_reservations(service){ //fonction asynchrone renvoyant une promesse
   const response = await axios.get("./src/model/resa_mat_crud.php");
   let liste_resa = [];
@@ -380,7 +387,7 @@ function clean_text_service(){
       p.remove();}
 }
 
-
+/** actualisation de l'affichage du plan sur le site */
 async function change_plan(){ //pour remplacer la matrice affiché par une autre
   service = change_service(service);
   const data = await appel_reservations(service); ///Met en pause l'exécution de la fonction jusqu'à ce que la promesse soit résolue

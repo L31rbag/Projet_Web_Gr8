@@ -50,20 +50,20 @@ if(isset($_GET["action"]) && isset($_GET["id"])){
 
 	if($action=="update"){
 		
-		/* Formulaire de maj d'un etudiant */
+		/* Formulaire de maj d'un paragraphe */
 		$paragraphe=select_paragrapheMenu($conn, $id) ;
 		$html=html_form_maj($paragraphe) ;
 		echo($html) ;				
 		
 	} elseif($action=="create"){
 		
-		/* Formulaire creation d'un etudiant */
+		/* Formulaire creation d'un paragraphe */
 		$html=html_form_create() ;
 		echo($html) ; 
 	
 	} elseif($action=="delete"){
 
-		/* Supression d'un etudiant */	
+		/* Supression d'un paragraphe */	
 		delete_paragrapheMenu($conn, $id) ;
 	}
 }

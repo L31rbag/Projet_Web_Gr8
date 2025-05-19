@@ -81,18 +81,18 @@ function html_form_maj($paragraphe){
 }
 
 /**
- * Formulaire de creation d'un etudiant
+ * Formulaire de creation d'un paragraphe
  */
-function html_form_create(){
+// function html_form_create(){
 	
-	$html="<form action='index.php?page=texte' method='POST'>\n" ; 
-	$html.="<label for='texte'>Texte</label>\n" ;
-	$html.="\t<input type='text' name='texte' >\n" ; 
-	$html.="\t<input type='hidden' name='action' value='create'>\n" ; 
-	$html.="\t<input type='hidden' name='id'>\n" ; 
-	$html.="\t<input type='submit'>\n" ; 
-	$html.="</form>\n";
+// 	$html="<form action='index.php?page=texte' method='POST'>\n" ; 
+// 	$html.="<label for='texte'>Texte</label>\n" ;
+// 	$html.="\t<input type='text' name='texte' >\n" ; 
+// 	$html.="\t<input type='hidden' name='action' value='create'>\n" ; 
+// 	$html.="\t<input type='hidden' name='id'>\n" ; 
+// 	$html.="\t<input type='submit'>\n" ; 
+// 	$html.="</form>\n";
 
-	return $html ; 
-}
+// 	return $html ; 
+// }
 ?>

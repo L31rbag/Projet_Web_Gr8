@@ -93,7 +93,7 @@ function html_a_update_menu($id){
 }
 
 /*
- * Formulaire de maj d'un menu
+ * Formulaire de maj d'un plat
  */
 function html_form_maj($menu){
 	$id 	= $menu["id"] ; 

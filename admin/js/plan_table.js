@@ -307,11 +307,24 @@ function change_service(service){
   return service;
 }
 
+function quel_service(service){
+  let res ="";
+  if(service==0){
+    res="Midi";
+  }
+  else{
+    res="Soir";
+  }
+  return res;
+}
 
-function afficher_plan(mat) {
+function afficher_plan(mat,service) {
+    let text = create("p", divRestaurant,quel_service(service));
+    text.id = "texte_service";
+
     let divMatrice = create("div", divRestaurant)
-    divMatrice.id = 'matrice'
-
+    divMatrice.id = 'matrice';
+    
     let matTable = create("table", divMatrice)
     matTable.id = 'mat_table'
 
@@ -361,13 +374,20 @@ function clean_matrice(){ // on supprime l'affichage actuel
       mat.remove();}
 }
 
+function clean_text_service(){
+  if(document.querySelector("#texte_service")){
+    let p = document.querySelector("#texte_service");
+      p.remove();}
+}
+
 
 async function change_plan(){ //pour remplacer la matrice affiché par une autre
   service = change_service(service);
   const data = await appel_reservations(service); ///Met en pause l'exécution de la fonction jusqu'à ce que la promesse soit résolue
   const plan = range(data);
   clean_matrice();
-  afficher_plan(plan);
+  clean_text_service();
+  afficher_plan(plan,service);
 };
 
 

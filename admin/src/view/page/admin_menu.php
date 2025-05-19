@@ -38,6 +38,7 @@ if(!$_SESSION["admin"]){
 <div id="Menu">
 
 <h2>Menu</h2>
+<p> Pour les types : 1 = entrée, 2 = plat, 3 = dessert</p>
 <?php
 
 

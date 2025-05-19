@@ -236,8 +236,8 @@ function ajouteGroupe(matrice, id, nb_personnes){
       while(y < nbColonnes && placement_choisi.length == 0){
         let possibilites = arrangementTablePossibles(nb_personnes, x, y);
         for (let id = 0; id < possibilites.length; id++){
-          if( estPosable(matrice, coo_tables)){
-            placement_choisi = coo_tables;
+          if( estPosable(matrice, possibilites[id])){
+            placement_choisi = possibilites[id];
             break;
           }
         }

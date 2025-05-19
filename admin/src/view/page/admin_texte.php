@@ -1,7 +1,4 @@
 <?php
-// include("../../../../db/db_connect.php");
-// include("../../model/paragrapheMenu_crud.php");
-// include("../fonction/paragrapheMenu_vue.php") ;
 
 include("../db/db_connect.php");
 include("./src/model/paragrapheMenu_crud.php");
@@ -102,7 +99,5 @@ echo($html) ;
 
 </div>
 </body>
-
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 </html>

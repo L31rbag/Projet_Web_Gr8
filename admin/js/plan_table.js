@@ -1,6 +1,7 @@
 const NB_CHAISE_MAX = 40;
 
-const VIDE = '.';
+const LIBRE = '.';
+const OCCUPE = '/';
 const CHAISE = 'c';
 const TABLE = 't' ;
 /*
@@ -24,7 +25,7 @@ function creerMatrice(nbLignes, nbColonnes) {
     const ligne = [];
 
     for (let j = 0; j < nbColonnes; j++) {
-      ligne.push(VIDE); // Valeur par défaut, ici 0
+      ligne.push(LIBRE); // Valeur par défaut, ici 0
     }
 
     matrice.push(ligne);
@@ -71,9 +72,10 @@ function estLibreEspaceTable(matrice, x ,y){
       const xi = x + i;
       const yj = y + j;
 
-      // Vérifie que la position est dans la matrice
+      // Vérifie que la position n'est hors de la matrice
       if (xi >= 0 && xi < nbColonnes && yj >= 0 && yj < nbLignes) {
-        if (matrice[yj][xi] !== VIDE) {
+        //verifie que le point est bien libre
+        if (matrice[yj][xi] != LIBRE) {
           return false;
         }
       }else{
@@ -86,11 +88,11 @@ function estLibreEspaceTable(matrice, x ,y){
 }
 
 /** teste si il y a la place pour poser des tables pour un groupe */
-function estPosable(matrice, liste_tables){
+function estPosable(matrice, tables){
   let res = true;
-  for (let i = 0; i < liste_tables.length; i++){
-    let x = liste_tables[i][0];
-    let y = liste_tables[i][1];
+  for (let i = 0; i < tables.length; i++){
+    let x = tables[i][0];
+    let y = tables[i][1];
     res = res && (estLibreEspaceTable(matrice,x,y));
   }
 
@@ -144,23 +146,35 @@ function espaceChaiseAutourTable(matrice, x_table, y_table){
   let res = [false, false, false, false];
 
   // gauche
-  if (x_table > 0 && matrice[y_table][x_table - 1] === VIDE) {
-    res[GAUCHE] = true;
-  }
+  if (x_table > 0){
+    let car = matrice[y_table][x_table - 1];
+    if (car == LIBRE || car == OCCUPE ) {
+      res[GAUCHE] = true;
+    }
+  } 
 
   // droite
-  if (x_table < nbColonnes - 1 && matrice[y_table][x_table + 1] === VIDE) {
-    res[DROITE] = true;
+  if (x_table < nbColonnes-1){
+    let car = matrice[y_table][x_table + 1];
+    if (car == LIBRE || car == OCCUPE ) {
+      res[DROITE] = true;
+    }
   }
 
   // haut
-  if (y_table > 0 && matrice[y_table - 1][x_table] === VIDE) {
-    res[HAUT] = true;
+  if (y_table > 0){
+    let car = matrice[y_table - 1][x_table];
+    if (car == LIBRE || car == OCCUPE ) {
+      res[HAUT] = true;
+    }
   }
 
   // bas
-  if (y_table < nbLignes - 1 && matrice[y_table + 1][x_table] === VIDE) {
-    res[BAS] = true;
+  if (y_table < nbLignes - 1){
+    let car = matrice[y_table + 1][x_table];
+    if (car == LIBRE || car == OCCUPE ) {
+      res[BAS] = true;
+    }
   }
 
   return res;
@@ -205,15 +219,41 @@ function ajouteUneChaise(matrice, coo_tables, id) {
   return matrice;
 }
 
+/** rend le tour de la table innoccupable */
+function occupeAutourTable(matrice, table){
+  const nbLignes = matrice.length;
+  const nbColonnes = matrice[0].length;
+  let x = table[0];
+  let y = table[1];
+
+
+  for (let i = -1; i <= 1; i++) {
+    for (let j = -1; j <= 1; j++) {
+      const xi = x + i;
+      const yj = y + j;
+
+      // Vérifie que la position est dans la matrice
+      if (xi >= 0 && xi < nbColonnes && yj >= 0 && yj < nbLignes) {
+        if (!(i == 0 && j == 0) && matrice[yj][xi] == LIBRE) {
+          matrice[yj][xi] = OCCUPE;
+        }
+      }
+    }
+  }
+
+  return matrice;
+}
+
 
 /** Place les tables et les chaises pour une réservation */
 function placeTablesChaises(matrice, coo_tables, nb_personnes, id){
   //TABLES
-  for(let i=0; i< coo_tables.length; i++){
-    let x = coo_tables[i][0];
-    let y = coo_tables[i][1];
+  coo_tables.forEach( table => {
+    let x = table[0];
+    let y = table[1];
     matrice[y][x] = TABLE.concat(id);
-  }
+    matrice = occupeAutourTable(matrice,table); 
+  })
 
   //CHAISES
   let cpt = nb_personnes
@@ -263,33 +303,6 @@ function range(data_reservation /* id: str, nb_pers:int */){
     });
     return mat;
 }
-
-// function appel_reservations(){
-//   const response = axios.get("./src/model/resa_mat_crud.php");
-//   let liste_resa = [];
-//   let id = 1;
-//   let res = []
-
-//   axios.get("./src/model/resa_mat_crud.php").then( response => {
-//     response.data.forEach( res => {
-//       let elem = {
-//         "id" : id.toString(), 
-//         "nb_pers" : parseInt(res["nbPersonne"]), 
-//         "nom" : res["nom"]
-//       };
-//       liste_resa.push(elem);
-//       id++;
-
-//     })
-
-//     res = range(liste_resa);
-//   })
-//   return res;
-// }
-
-// const plan = appel_reservations();
-// afficheMatrice(plan);
-
 
 /** creer une nouvelle balise sur un conteneur */
 function create(tag, container, text=null) {
@@ -350,7 +363,7 @@ function afficher_plan(mat,service) {
             if (mat[i][y].charAt(0) == CHAISE) {
                 td.classList.add("chaise");
 
-            } else if (mat[i][y] == VIDE) {
+            } else if (mat[i][y] == LIBRE || mat[i][y] == OCCUPE ) { 
                 td.classList.add("vide");
 
             } else {

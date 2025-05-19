@@ -13,7 +13,7 @@ const DROITE = 1;
 const HAUT = 2;
 const BAS = 3;
 
-const TAILLE_MATRICE = 20;
+const TAILLE_MATRICE = 15;
 
 /** renvoie une matrice nbLignes x NbColonnes */
 function creerMatrice(nbLignes, nbColonnes) {
@@ -209,7 +209,7 @@ function placeTablesChaises(matrice, coo_tables, nb_personnes, id){
   for(let i=0; i< coo_tables.length; i++){
     let x = coo_tables[i][0];
     let y = coo_tables[i][1];
-    matrice[y][x] = id;
+    matrice[x][y] = id;
   }
 
   let cpt = nb_personnes
@@ -315,12 +315,12 @@ function afficher_plan(mat) {
     let matTable = create("table", divMatrice)
     matTable.id = 'mat_table'
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < TAILLE_MATRICE; i++) {
 
         let tr = create("tr", matTable)
         tr.id = i.toString()
 
-        for (let y = 0; y < 20; y++) {
+        for (let y = 0; y < TAILLE_MATRICE; y++) {
             let td = create("td", tr, mat[i][y])
             td.id = i.toString() + "," + y.toString()
 
@@ -339,7 +339,7 @@ function afficher_plan(mat) {
 
 }
 
-async function appel_reservations(service){
+async function appel_reservations(service){ //fonction asynchrone renvoyant une promesse
   const response = await axios.get("./src/model/resa_mat_crud.php");
   let liste_resa = [];
   let id_table = 1; //ID de la table qui sera affiché sur le plan pour partir de 1 à n
@@ -361,12 +361,14 @@ function clean_matrice(){ // on supprime l'affichage actuel
       mat.remove();}
 }
 
-change_plan(); //appel par défaut
 
 async function change_plan(){ //pour remplacer la matrice affiché par une autre
   service = change_service(service);
-  const data = await appel_reservations(service);
+  const data = await appel_reservations(service); ///Met en pause l'exécution de la fonction jusqu'à ce que la promesse soit résolue
   const plan = range(data);
   clean_matrice();
   afficher_plan(plan);
 };
+
+
+change_plan(); //appel par défaut

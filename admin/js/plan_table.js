@@ -293,7 +293,20 @@ function create(tag, container, text=null) {
     return element
 }
 
-const divRestaurant = document.querySelector("#restaurant")
+let service = 1;
+const divRestaurant = document.querySelector("#restaurant");
+divRestaurant.addEventListener("click", change_plan);
+
+function change_service(service){
+  if(service==0){
+    service = 1;
+  }
+  else{
+    service = 0;
+  }
+  return service;
+}
+
 
 function afficher_plan(mat) {
     let divMatrice = create("div", divRestaurant)
@@ -326,24 +339,34 @@ function afficher_plan(mat) {
 
 }
 
-async function appel_reservations(){
+async function appel_reservations(service){
   const response = await axios.get("./src/model/resa_mat_crud.php");
   let liste_resa = [];
-  let id = 1;
-
+  let id_table = 1; //ID de la table qui sera affiché sur le plan pour partir de 1 à n
   response.data.forEach( res => {
-    let elem = {"id" : id.toString(), 
+    if(res["date"]==jour && res["service"]==service){ // récupére ceux dont le service est pour le midi/soir sur le jour chargé sur la page
+    let elem = {"id" : id_table.toString(), 
       "nb_pers" : parseInt(res["nbPersonne"]), 
       "nom" : res["nom"]};
-    liste_resa.push(elem)
-    id++;
+    liste_resa.push(elem);
+    id_table++;
+    }
   })
   return liste_resa;
 }
 
-(async () => {
-  const data = await appel_reservations();
-  const plan = range(data);
-  afficher_plan(plan);
-})();
+function clean_matrice(){ // on supprime l'affichage actuel 
+  if(document.querySelector("#matrice")){
+      let mat = document.querySelector("#matrice");
+      mat.remove();}
+}
 
+change_plan(); //appel par défaut
+
+async function change_plan(){ //pour remplacer la matrice affiché par une autre
+  service = change_service(service);
+  const data = await appel_reservations(service);
+  const plan = range(data);
+  clean_matrice();
+  afficher_plan(plan);
+};

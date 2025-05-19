@@ -40,14 +40,12 @@ else{
 </header>
 
 <body>
-
+	
 <div id="restaurant">
 
 <h2>Restaurant</h2>
 
-
 </div>
-
 
 <div id="barre">
 
@@ -55,8 +53,6 @@ else{
 
 
 <div id="table_res">
-
-
 
 <h2>Reservation</h2>
 
@@ -89,7 +85,7 @@ if(isset($_GET["action"]) && isset($_GET["id"])){
 	} elseif($action=="create"){
 		
 		/* Formulaire creation d'une resa */
-		$html=html_form_create() ;
+		$html=html_form_create($jour) ;
 		echo($html) ; 
 	
 	} elseif($action=="delete"){
@@ -131,14 +127,17 @@ if(isset($_POST["action"]) && isset($_POST["id"])){
 $resas=liste_resa($conn,$jour) ;
 $html=html_table_resa($resas);
 echo($html) ;
-
+echo "<a id='ajout_resa' href='index.php?page=resa&table=resa&action=create&id=_&date=$jour'>Ajouter une reservation</a>";
 ?>
 
 <!-- lien d'ajout d'une resa -->
-<a id="ajout_resa" href="index.php?page=resa&table=resa&action=create&id=_">Ajouter une reservation</a>
-
+<!-- <a id="ajout_resa" href="index.php?page=resa&table=resa&action=create&id=_">Ajouter une reservation</a> -->
 </div>
 
+<script> //On récupére la date pour pouvoir filtrer et construire la résa sur le jour choisi
+	var jour = <?php echo json_encode($jour); ?>;
+	console.log(jour);
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./js/plan_table.js" defer></script>
